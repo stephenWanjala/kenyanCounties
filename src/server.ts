@@ -54,6 +54,20 @@ app.get('/counties', (req, res) => {
 
     res.json(filteredCounties);
 });
+/*
+Get  Sub-Counties in a County
+*/
+
+app.get('/counties/:county/sub-counties', (req, res) => {
+    const { county } = req.params;
+    const countyData = counties.find(c => c.countyName.toLowerCase() === county.toLowerCase());
+
+    if (!countyData) {
+        return res.status(404).json({ message: 'County not found' });
+    }
+
+    res.json(countyData.subCounties);
+});
 
 // Start the server
 app.listen(port, () => {
