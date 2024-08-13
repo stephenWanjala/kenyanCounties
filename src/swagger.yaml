@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: Kenyan Counties API
+  description: API to retrieve and search Kenyan counties and sub-counties.
+  version: 1.0.0
+  contact:
+    name: Author
+    email: stephenwanjala145@gmail.com
+    url: https://wanjalastephen.vercel.app/
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /counties:
+    get:
+      summary: Retrieve counties with optional filters
+      description: Get a list of counties and their sub-counties. Filters can be applied by county code, county name, or sub-county name.
+      parameters:
+        - name: countyCode
+          in: query
+          description: The code of the county to filter by.
+          required: false
+          schema:
+            type: integer
+          example: 1
+        - name: countyName
+          in: query
+          description: The name of the county to filter by.
+          required: false
+          schema:
+            type: string
+          example: MOMBASA
+        - name: subCountyName
+          in: query
+          description: The name of the sub-county to filter by.
+          required: false
+          schema:
+            type: string
+          example: CHANGAMWE
+      responses:
+        '200':
+          description: A list of counties and their sub-counties.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    countyCode:
+                      type: integer
+                      description: The unique code for the county.
+                      example: 1
+                    countyName:
+                      type: string
+                      description: The name of the county.
+                      example: MOMBASA
+                    subCounties:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          subCountyCode:
+                            type: integer
+                            description: The unique code for the sub-county.
+                            example: 101
+                          subCountyName:
+                            type: string
+                            description: The name of the sub-county.
+                            example: CHANGAMWE
+              examples:
+                example1:
+                  summary: Example with one county
+                  value: |
+                    [
+                      {
+                        "countyCode": 1,
+                        "countyName": "MOMBASA",
+                        "subCounties": [
+                          {
+                            "subCountyCode": 101,
+                            "subCountyName": "CHANGAMWE"
+                          }
+                        ]
+                      }
+                    ]
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                    example: Invalid query parameter
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                    example: Unexpected server error
