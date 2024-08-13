@@ -38,7 +38,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/stephenWanjala/kenyanCounties/edit/master/my-docs/docs/api-overview.md',
+            'https://github.com/stephenWanjala/kenyanCounties/edit/master/my-docs/',
         },
         // blog: {
         //   showReadingTime: true,

@@ -18,6 +18,11 @@
   "author": "WANJALA STEPHEN",
   "license": "ISC",
   "dependencies": {
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/module-type-aliases": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/tsconfig": "^3.5.2",
+    "@docusaurus/types": "^3.5.2",
     "@types/express": "^4.17.21",
     "@types/node": "^22.2.0",
     "express": "^4.19.2",
@@ -25,9 +30,7 @@
     "swagger-ui-express": "^5.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "yamljs": "^0.3.0",
-    "@docusaurus/core": "3.5.1",
-    "@docusaurus/preset-classic": "3.5.1"
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@types/papaparse": "^5.3.14",
