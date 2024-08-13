@@ -1,19 +1,30 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/server.ts",
-        "use": "@vercel/node",
-        "config": {
-          "distDir": "dist"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server.ts",
+      "use": "@vercel/node",
+      "config": {
+        "distDir": "dist"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/src/server.ts"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/server.ts"
+    },
+    {
+      "src": "/swagger.yaml",
+      "dest": "/src/swagger.yaml"
+    },
+    {
+      "src": "/docs/(.*)",
+      "dest": "/my-docs/build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/server.ts"
+    }
+  ]
+}

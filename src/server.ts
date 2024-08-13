@@ -1,9 +1,9 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
+import path from 'path';
+import fs from 'fs';
 import { parseCSV } from './processData';
-import * as path from 'path';
-import * as fs from 'fs';
 
 const app = express();
 const port = 3000;
@@ -13,6 +13,9 @@ const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
 
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Serve static files from the Docusaurus build directory
+app.use('/', express.static(path.join(__dirname, '..', 'my-docs', 'build')));
 
 // Read and parse CSV data from a file
 const csvFilePath = path.join(__dirname, 'data.csv');

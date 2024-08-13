@@ -19,3 +19,4 @@ yarn.lock
 # IDE specific files
 .vscode/
 .idea/
+.vercel

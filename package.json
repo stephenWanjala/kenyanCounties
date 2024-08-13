@@ -4,7 +4,11 @@
   "description": "Kenayan Counties & subcounties",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-docs": "cd my-docs && npm run build",
+    "build": "npm run build-docs && tsc",
+    "start": "ts-node src/server.ts",
+    "vercel-build": "npm run build"
   },
   "keywords": [
     "API",
