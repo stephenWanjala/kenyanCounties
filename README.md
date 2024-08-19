@@ -9,7 +9,7 @@ The Kenyan Counties API allows you to retrieve and search Kenyan counties and su
 ### Get Counties
 
 Retrieves a list of counties and their sub-counties.
-> Base Url `https://kenyan-counties.vercel.app/`
+> Base Url `https://kenyan-counties.vercel.app`
 **Endpoint:** `/counties`
 
 **Method:** `GET`
@@ -53,7 +53,7 @@ GET /counties?countyCode=1
 
 Retrieves a list of sub-counties for a specific county.
 
-   >Base Url https://kenyan-counties.vercel.app/docs/api-overview
+   >Base Url https://kenyan-counties.vercel.app
     Endpoint: `/counties/{county}/sub-counties`
 
 Method: `GET`
